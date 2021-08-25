@@ -23,7 +23,7 @@ async def on_ready():
     while True:
         current_ms = int(time.time() * 1000)
         if next_check_ms <= current_ms:
-            next_check_ms = next_check_ms + (60 * 1000)
+            next_check_ms = next_check_ms + (5 * 60 * 1000)
             players = get_players()
             act = discord.Game(name=f"Absolver with {players} players")
             await client.change_presence(activity=act)
