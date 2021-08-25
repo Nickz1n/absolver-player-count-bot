@@ -19,14 +19,15 @@ def get_players() -> str:
 async def on_ready():
     print("bot online!!")
     next_check_ms = int(time.time() * 1000)
-
+    count = 0
     while True:
         current_ms = int(time.time() * 1000)
         if next_check_ms <= current_ms:
-            next_check_ms = next_check_ms + (5 * 60 * 1000)
+            next_check_ms = next_check_ms + (435 * 1000)
             players = get_players()
             act = discord.Game(name=f"Absolver with {players} players")
             await client.change_presence(activity=act)
-            print(f"player count updated: {players} players")
+            count +=1
+            print(f"#{count} player count updated: {players} players")
 
 client.run(token)
